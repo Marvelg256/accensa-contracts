@@ -8,7 +8,6 @@ exception: while the project is below `1.0.0`, breaking changes bump the
 **minor** version, and they are called out as such.
 
 ## [Unreleased]
-- docs(governance): document the 4 public items in lib.rs (closes #746) (#850).
 ### Changed
 - Remove two no-op modules from the `accensa-common` public API.
 - fix(refund-vault,refund-policy-vdf): guard four amount paths with checked math (closes #716, #717, #718, #719) (#896).
@@ -30,6 +29,7 @@ exception: while the project is below `1.0.0`, breaking changes bump the
   zero-delay no-gate path is gated separately and much tighter. Test-only —
   the modulus, `MR_BASES`, delay types and contract behaviour are unchanged.
 - **Internal tests (#655, #657):** Pinned the treasury vesting event shapes and the reputation SBT authority gate on `issue`, `revoke` and `slash`.
+- docs(governance): document the 4 public items in lib.rs (closes #746) (#850).
 - **Documentation (#756, #757, #761, #762):** Documented granular event payload fields and refund-vault APIs.
 
 - **`multisig-account` (issue #413): daily spending limits for sub-threshold
