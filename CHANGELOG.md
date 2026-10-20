@@ -15,6 +15,15 @@ exception: while the project is below `1.0.0`, breaking changes bump the
 - docs(factory): rustdoc for 7 public items in refund-vault-factory/lib… (#880).
 - **Documentation (#776):** Documented all 5 public fields of receipt-anchor's `PrunePayload` (`schema_version`, `timestamp`, `shard_id`, `start_batch_id`, `end_batch_id`) in `contracts/receipt-anchor/src/events.rs`, each with a `///` line stating its domain and the `prune_batches` call site that writes it, so an off-chain decoder can read the published `prune` payload without reading the contract source; doc comments only, no field, type, order or derive change.
 - docs: Add /// to BatchRecord's exported fields (#777) (#901).
+- **`governance` (issue #743): rustdoc for `liquid_staking.rs`'s 6 undocumented
+  public items.** `contracts/governance/src/liquid_staking.rs` now documents
+  `LiquidStakingError`, the `Mint` and `Burn` events (each field's role),
+  `ExchangeRate`, `UserData` and the `LiquidStaking` contract struct. Doc
+  comments only — no signature, body, ordering or test change, and
+  `missing_docs` is deliberately not enabled.
+- Issue #572: Removed the uncompiled, unreferenced source files `contracts/governance/src/liquid_staking_impl.rs`, `contracts/refund-vault/src/guard.rs`, and `contracts/refund-vault/src/test/test/refund_vectors.rs`. No compiled contract behavior changed.
+  
+### Removed
 - **`stream-vault` (issue #603): add Tier A budget assertions for claim, cancel, create, and pause/resume.**
   Adds `budget_test` module with Tier A budget ceilings covering stream creation, partial and full claims, pause/resume cycles, and cancellations. Test-only — no contract behavior change.
 - **`treasury` (issue #606): assert buyback and fee-liquidation events and their config key.**
@@ -31,15 +40,6 @@ exception: while the project is below `1.0.0`, breaking changes bump the
 - **Internal tests (#655, #657):** Pinned the treasury vesting event shapes and the reputation SBT authority gate on `issue`, `revoke` and `slash`.
 - **Documentation (#756, #757, #761, #762):** Documented granular event payload fields and refund-vault APIs.
 
-### Removed
-- Issue #572: Removed the uncompiled, unreferenced source files `contracts/governance/src/liquid_staking_impl.rs`, `contracts/refund-vault/src/guard.rs`, and `contracts/refund-vault/src/test/test/refund_vectors.rs`. No compiled contract behavior changed.
-  
-- **`governance` (issue #743): rustdoc for `liquid_staking.rs`'s 6 undocumented
-  public items.** `contracts/governance/src/liquid_staking.rs` now documents
-  `LiquidStakingError`, the `Mint` and `Burn` events (each field's role),
-  `ExchangeRate`, `UserData` and the `LiquidStaking` contract struct. Doc
-  comments only — no signature, body, ordering or test change, and
-  `missing_docs` is deliberately not enabled.
 - **`multisig-account` (issue #413): daily spending limits for sub-threshold
   signers.** Governance can configure a per-token daily allowance for routine
   transfers authorized by fewer than the full threshold. Spending is tracked
